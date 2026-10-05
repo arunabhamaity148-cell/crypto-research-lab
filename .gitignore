@@ -1,15 +1,4 @@
-.env
-*.key
-*.pem
-secrets/
-venv/
-__pycache__/
-*.pyc
-*.csv
-*.parquet
-*.duckdb
-*.log
-.ipynb_checkpoints/# Environment & Secrets
+# Environment & Secrets
 .env
 .env.*
 *.key
@@ -20,7 +9,6 @@ credentials/
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
 *.so
 venv/
 env/
@@ -29,13 +17,13 @@ env/
 .pytest_cache/
 .mypy_cache/
 
-# Data
-data/
+# Data files (but NOT code)
 *.csv
 *.parquet
 *.duckdb
 *.db
 *.sqlite
+data/market.duckdb
 
 # Logs
 *.log

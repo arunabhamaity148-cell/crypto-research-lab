@@ -1,0 +1,29 @@
+[project]
+name = "crypto-research-lab"
+version = "0.1.0"
+description = "Research-first cryptocurrency quantitative research laboratory"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "duckdb>=0.9",
+    "httpx>=0.25",
+    "python-dotenv>=1.0",
+    "pydantic>=2.0",
+    "loguru>=0.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "ruff>=0.1",
+    "ipython>=8.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

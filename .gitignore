@@ -1,4 +1,15 @@
-# Environment & Secrets
+.env
+*.key
+*.pem
+secrets/
+venv/
+__pycache__/
+*.pyc
+*.csv
+*.parquet
+*.duckdb
+*.log
+.ipynb_checkpoints/# Environment & Secrets
 .env
 .env.*
 *.key

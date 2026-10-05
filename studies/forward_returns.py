@@ -63,3 +63,22 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def main_fdr():
+    from statistics.multiple_testing import bh_summary
+    conn = duckdb.connect(str(DB_PATH), read_only=True)
+    df = conn.execute("SELECT * FROM features_price ORDER BY open_time").fetchdf()
+    conn.close()
+    df = add_forward_returns(df)
+
+    names, pvals = [], []
+    for horizon in ["1m", "5m", "15m", "1h", "4h"]:
+        r = run_volume_test(df, horizon)
+        names.append(horizon)
+        pvals.append(r["p_value"])
+
+    print("\n" + "=" * 60)
+    print("MULTIPLE TESTING CORRECTION")
+    print("=" * 60)
+    bh_summary(names, pvals, alpha=0.05)
